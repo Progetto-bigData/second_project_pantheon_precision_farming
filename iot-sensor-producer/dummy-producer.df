@@ -1,0 +1,9 @@
+FROM python:3
+
+COPY dummy-producer.py ./
+
+RUN pip install kafka-python 
+
+CMD ["dummy-producer.py"]
+
+ENTRYPOINT ["python3"]

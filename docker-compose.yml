@@ -18,7 +18,7 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "test:1:1"
+      KAFKA_CREATE_TOPICS: "test:1:1, humidity-sensor:1:1, pressure-sensor:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       
@@ -28,5 +28,21 @@ services:
       context: ./iot-sensor-producer
       dockerfile: dummy-producer.df
     container_name: dummy-producer
+    depends_on:
+      - "kafka"
+      
+  humidity-producer:
+    build: 
+      context: .
+      dockerfile: ./iot-sensor-producer/humidity-producer.df
+    container_name: humidity-producer
+    depends_on:
+      - "kafka"
+      
+  pressure-producer:
+    build: 
+      context: .
+      dockerfile: ./iot-sensor-producer/pressure-producer.df
+    container_name: pressure-producer
     depends_on:
       - "kafka"

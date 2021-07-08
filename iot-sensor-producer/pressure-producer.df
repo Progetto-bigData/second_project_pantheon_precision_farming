@@ -1,0 +1,10 @@
+FROM python:3
+
+COPY ./iot-sensor-producer/pressure-producer.py ./data/CSV/* ./
+
+RUN pip install kafka-python 
+
+CMD ["pressure-producer.py"]
+
+ENTRYPOINT ["python3"] 
+ 

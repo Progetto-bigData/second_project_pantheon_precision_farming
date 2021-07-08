@@ -1,0 +1,11 @@
+FROM python:3
+
+COPY ./iot-sensor-producer/rain-producer.py ./data/CSV/* ./
+
+RUN pip install kafka-python 
+
+CMD ["rain-producer.py"]
+
+ENTRYPOINT ["python3"] 
+ 
+ 

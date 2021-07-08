@@ -1,0 +1,9 @@
+FROM python:3
+
+COPY ./iot-sensor-producer/humidity-producer.py ./data/CSV/* ./
+
+RUN pip install kafka-python 
+
+CMD ["humidity-producer.py"]
+
+ENTRYPOINT ["python3"] 

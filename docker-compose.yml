@@ -70,3 +70,11 @@ services:
     container_name: soil-temperature-producer
     depends_on:
       - "kafka"
+      
+  soil-water-producer:
+    build: 
+      context: .
+      dockerfile: ./iot-sensor-producer/soil-water-producer.df
+    container_name: soil-water-producer
+    depends_on:
+      - "kafka"

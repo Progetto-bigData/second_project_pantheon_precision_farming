@@ -1,0 +1,12 @@
+FROM python:3
+
+COPY ./iot-sensor-producer/soil-water-producer.py ./data/CSV/* ./
+
+RUN pip install kafka-python 
+
+CMD ["soil-water-producer.py"]
+
+ENTRYPOINT ["python3"] 
+ 
+ 
+ 

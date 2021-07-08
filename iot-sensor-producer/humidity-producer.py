@@ -30,10 +30,10 @@ def read_file_and_send_data(producer, filenames, month_number):
             for row in reader:
                 jsonRow = json.dumps(row)
                 send_data(producer, TOPIC, jsonRow, month_number, filename)
-                time.sleep(0.5)
+                time.sleep(0.1)
     
 def main():
-    time.sleep(15)
+    time.sleep(20)
     
     producer = create_producer('kafka', '9092')
     print(producer)

@@ -1,0 +1,10 @@
+FROM python:3
+
+COPY ./iot-sensor-producer/wind-producer.py ./data/CSV/* ./
+
+RUN pip install kafka-python 
+
+CMD ["wind-producer.py"]
+
+ENTRYPOINT ["python3"] 
+ 

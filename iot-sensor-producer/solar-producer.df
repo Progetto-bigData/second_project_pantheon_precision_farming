@@ -1,0 +1,12 @@
+FROM python:3
+
+COPY ./iot-sensor-producer/solar-producer.py ./data/CSV/* ./
+
+RUN pip install kafka-python 
+
+CMD ["solar-producer.py"]
+
+ENTRYPOINT ["python3"] 
+ 
+ 
+ 

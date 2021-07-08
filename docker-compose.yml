@@ -18,7 +18,7 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "test:1:1, humidity-sensor:1:1, pressure-sensor:1:1, rain-sensor:1:1"
+      KAFKA_CREATE_TOPICS: "test:1:1, humidity-sensor:1:1, pressure-sensor:1:1, rain-sensor:1:1, solar-sensor:1:1, soil-temperature-sensor:1:1, soil-water-sensor:1:1, temperature-sensor:1:1, wind-sensor:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       
@@ -30,7 +30,8 @@ services:
     container_name: dummy-producer
     depends_on:
       - "kafka"
-      
+ 
+ 
   humidity-producer:
     build: 
       context: .
@@ -38,7 +39,8 @@ services:
     container_name: humidity-producer
     depends_on:
       - "kafka"
-      
+ 
+ 
   pressure-producer:
     build: 
       context: .
@@ -46,7 +48,8 @@ services:
     container_name: pressure-producer
     depends_on:
       - "kafka"
-      
+   
+   
   rain-producer:
     build: 
       context: .
@@ -54,3 +57,40 @@ services:
     container_name: rain-producer
     depends_on:
       - "kafka"
+  
+  
+  solar-producer:
+    build: 
+      context: .
+      dockerfile: ./iot-sensor-producer/solar-producer.df
+    container_name: solar-producer
+    depends_on:
+      - "kafka"
+  
+  
+  soil-temperature-producer:
+    build: 
+      context: .
+      dockerfile: ./iot-sensor-producer/soil-temperature-producer.df
+    container_name: soil-temperature-producer
+    depends_on:
+      - "kafka"
+  
+  
+  soil-water-producer:
+    build: 
+      context: .
+      dockerfile: ./iot-sensor-producer/soil-water-producer.df
+    container_name: soil-water-producer
+    depends_on:
+      - "kafka"
+  
+  
+  wind-producer:
+    build: 
+      context: .
+      dockerfile: ./iot-sensor-producer/wind-producer.df
+    container_name: wind-producer
+    depends_on:
+      - "kafka"
+

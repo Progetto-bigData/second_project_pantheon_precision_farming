@@ -30,7 +30,8 @@ services:
     container_name: dummy-producer
     depends_on:
       - "kafka"
-      
+ 
+ 
   humidity-producer:
     build: 
       context: .
@@ -38,7 +39,8 @@ services:
     container_name: humidity-producer
     depends_on:
       - "kafka"
-      
+ 
+ 
   pressure-producer:
     build: 
       context: .
@@ -46,7 +48,8 @@ services:
     container_name: pressure-producer
     depends_on:
       - "kafka"
-      
+   
+   
   rain-producer:
     build: 
       context: .
@@ -54,7 +57,8 @@ services:
     container_name: rain-producer
     depends_on:
       - "kafka"
-      
+  
+  
   solar-producer:
     build: 
       context: .
@@ -62,7 +66,8 @@ services:
     container_name: solar-producer
     depends_on:
       - "kafka"
-      
+  
+  
   soil-temperature-producer:
     build: 
       context: .
@@ -70,7 +75,8 @@ services:
     container_name: soil-temperature-producer
     depends_on:
       - "kafka"
-      
+  
+  
   soil-water-producer:
     build: 
       context: .
@@ -78,7 +84,8 @@ services:
     container_name: soil-water-producer
     depends_on:
       - "kafka"
-      
+  
+  
   wind-producer:
     build: 
       context: .
@@ -86,3 +93,4 @@ services:
     container_name: wind-producer
     depends_on:
       - "kafka"
+

@@ -11,7 +11,8 @@ def main():
     
     kvs = KafkaUtils.createDirectStream(ssc, ["test"], {"metadata.broker.list": "kafka:9092"})
     lines = kvs.map(lambda line: line)
-    lines.pprint()
+    #lines.pprint()
+    lines.saveAsTextFiles("/datalake/")
     ssc.start()
     ssc.awaitTermination()
 

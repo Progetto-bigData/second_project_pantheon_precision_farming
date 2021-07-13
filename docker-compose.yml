@@ -103,6 +103,8 @@ services:
       - "./disk:/datalake"
     ports:
       - "8080:8080"
+      - "8020:8020"
+      - "50010:50010"
     environment:
       - INIT_DAEMON_STEP=setup_spark
     depends_on:

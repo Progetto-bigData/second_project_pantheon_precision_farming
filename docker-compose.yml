@@ -93,14 +93,13 @@ services:
     container_name: wind-producer
     depends_on:
       - "kafka"
+
       
   spark-master:
     build: 
       context: .
       dockerfile: ./iot-consumer/dummy-consumer.df
     container_name: spark-master
-    volumes:
-      - "./disk:/datalake"
     ports:
       - "8080:8080"
       - "8020:8020"
@@ -109,4 +108,18 @@ services:
       - INIT_DAEMON_STEP=setup_spark
     depends_on:
       - "kafka"
+      - "influx"
+      
+
+  influx:
+    image: influxdb:1.8
+    ports:
+     - "8083:8083"
+     - "8086:8086"
+    environment:
+     - INFLUXDB_USER=root
+     - INFLUXDB_PASS=password
+     - INFLUXDB_DB=pantheon
+    volumes:
+     - "./disk:/var/lib/influxdb"
 

@@ -31,7 +31,7 @@ def read_file_and_send_data(producer, filenames, month_number):
             for row in reader:
                 jsonRow = json.dumps(row)
                 send_data(producer, TOPIC, jsonRow, month_number, filename)
-                time.sleep(0.1)
+                time.sleep(0.001)
     
 def main():
     time.sleep(20)

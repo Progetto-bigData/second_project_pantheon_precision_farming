@@ -17,23 +17,22 @@ def map_save_influx(x,client):
     dict_values = json.loads(values)
     #print(type(dict_values))
     #print(dict_values)
-    #print("#####values#######")
-    #print(dict_values["created"])
-    #print(dict_values["id_sensor"])
-    #print(dict_values["type"])
-    #print(dict_values["value"])
-    #print(dict_values["unit"])
+    print("#####values#######")
+    print(dict_values["created"])
+    print(dict_values["id_sensor"])
+    print(dict_values["type"])
+    print(dict_values["value"])
+    print(dict_values["unit"])
     json_to_save = [
         {
-            "measurement": "humidityTest",
+            "measurement": dict_values["id_sensor"],
             "time": dict_values["created"],
             "tags": {
-                "idSensor" : dict_values["id_sensor"],
                 "sensorType": dict_values["type"]
             },
             "fields": {
-                "humidity_min": dict_values["value"],
-                "humidity_min_unit_measure": dict_values["unit"]
+                "value": dict_values["value"],
+                "unit_measure": dict_values["unit"]
             }
         }
     ]
@@ -48,8 +47,8 @@ def main():
     spark = SparkSession.builder.appName("Dummy-consumer").getOrCreate()
     sc = spark.sparkContext
     ssc = StreamingContext(sc, 10)  # batch interval to collect data
-    
-    kvs = KafkaUtils.createDirectStream(ssc, ['humidity-sensor'], {"metadata.broker.list": "kafka:9092"})
+    topics_list = ['humidity-sensor', 'pressure-sensor', 'rain-sensor', 'solar-sensor', 'soil-temperature-sensor', 'soil-water-sensor', 'temperature-sensor', 'wind-sensor']
+    kvs = KafkaUtils.createDirectStream(ssc, topics_list, {"metadata.broker.list": "kafka:9092"})
     client = InfluxDBClient(host='influx', port=8086, username='root', password='password')
     client.switch_database('pantheon')
     lines = kvs.map(lambda x: read_data(x)).map(lambda x : map_save_influx(x,client))

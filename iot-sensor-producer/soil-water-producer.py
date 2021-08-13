@@ -33,7 +33,7 @@ def read_file_and_send_data(producer, month_number):
 
     
 def main():
-    time.sleep(20)
+    time.sleep(60)
     
     producer = create_producer('kafka', '9092')
     print(producer)

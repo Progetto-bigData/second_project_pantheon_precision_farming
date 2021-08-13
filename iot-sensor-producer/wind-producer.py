@@ -34,7 +34,7 @@ def read_file_and_send_data(producer, filenames, month_number):
                 time.sleep(0.001)
     
 def main():
-    time.sleep(20)
+    time.sleep(60)
     
     producer = create_producer('kafka', '9092')
     print(producer)

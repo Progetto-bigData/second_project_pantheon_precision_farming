@@ -31,7 +31,7 @@ def map_save_influx(x,client):
                 "sensorType": dict_values["type"]
             },
             "fields": {
-                "value": dict_values["value"],
+                "value": float(dict_values["value"]),
                 "unit_measure": dict_values["unit"]
             }
         }

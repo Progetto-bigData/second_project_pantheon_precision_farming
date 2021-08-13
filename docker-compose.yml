@@ -127,21 +127,6 @@ services:
       - "influx"
       
 
-  spark-master-v2:
-    build: 
-      context: .
-      dockerfile: ./prova.df
-    container_name: spark-master-prova
-    ports:
-      - "8081:8080"
-      - "8021:8020"
-      - "50011:50010"
-    environment:
-      - INIT_DAEMON_STEP=setup_spark
-    depends_on:
-      - "influx"
-      
-
   influx:
     image: influxdb:1.8
     container_name: influx

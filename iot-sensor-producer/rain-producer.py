@@ -3,6 +3,7 @@ import csv
 import json
 import time
 from kafka import KafkaProducer
+import configFileManager
 
 FILENAME_RAIN_FMT = './2020-{}-rain.csv'
 TOPIC = 'rain-sensor'
@@ -23,17 +24,19 @@ def send_data(producerInstance, topicName, data, month_number):
 
 
 def read_file_and_send_data(producer, month_number):
+    timeToSleep = float(configFileManager.read_config_file("DEFAULT", "sleeptimebetweenrows", "properties.ini"))
     filename = FILENAME_RAIN_FMT.format(month_number)
     with open(filename) as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
             jsonRow = json.dumps(row)
             send_data(producer, TOPIC, jsonRow, month_number)
-            time.sleep(0.001)
+            time.sleep(timeToSleep)
 
     
 def main():
-    time.sleep(60)
+    timeToSleep = int(configFileManager.read_config_file("DEFAULT", "startingsleeptime", "properties.ini"))
+    time.sleep(timeToSleep)
     
     producer = create_producer('kafka', '9092')
     print(producer)

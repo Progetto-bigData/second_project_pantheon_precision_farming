@@ -3,6 +3,7 @@ import csv
 import json
 import time
 from kafka import KafkaProducer
+import configFileManager
 
 FILENAME_HUMIDITY_AVERAGE_FMT = './2020-{}-humidity-average.csv'
 FILENAME_HUMIDITY_MAX_FMT = './2020-{}-humidity-max.csv'
@@ -23,6 +24,7 @@ def send_data(producerInstance, topicName, data, month_number, filename):
     return
 
 def read_file_and_send_data(producer, filenames, month_number):
+    timeToSleep = float(configFileManager.read_config_file("DEFAULT", "sleeptimebetweenrows", "properties.ini"))
     for filename in filenames:
         filename = filename.format(month_number)
         with open(filename) as csvFile:
@@ -30,10 +32,11 @@ def read_file_and_send_data(producer, filenames, month_number):
             for row in reader:
                 jsonRow = json.dumps(row)
                 send_data(producer, TOPIC, jsonRow, month_number, filename)
-                time.sleep(0.001)
+                time.sleep(timeToSleep)
     
 def main():
-    time.sleep(60)
+    timeToSleep = int(configFileManager.read_config_file("DEFAULT", "startingsleeptime", "properties.ini"))
+    time.sleep(timeToSleep)
     
     producer = create_producer('kafka', '9092')
     print(producer)

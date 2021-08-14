@@ -1,6 +1,6 @@
 FROM python:3
 
-COPY ./iot-sensor-producer/solar-producer.py ./data/CSV/* ./
+COPY ./iot-sensor-producer/solar-producer.py ./iot-sensor-producer/configFileManager.py ./iot-sensor-producer/properties.ini ./data/CSV/* ./
 
 RUN pip install kafka-python 
 

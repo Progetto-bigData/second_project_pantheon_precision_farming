@@ -11,12 +11,8 @@ def read_data(x):
 
 
 def map_save_influx(x,client):
-    #print("#######prova########")
-    #print("x[1]")
     values = x[1].encode("utf-8")
     dict_values = json.loads(values)
-    #print(type(dict_values))
-    #print(dict_values)
     print("#####values#######")
     print(dict_values["created"])
     print(dict_values["id_sensor"])
@@ -44,7 +40,7 @@ def map_save_influx(x,client):
 
 def main():
     time.sleep(35)
-    spark = SparkSession.builder.appName("Dummy-consumer").getOrCreate()
+    spark = SparkSession.builder.appName("Consumer").getOrCreate()
     sc = spark.sparkContext
     ssc = StreamingContext(sc, 10)  # batch interval to collect data
     topics_list = ['humidity-sensor', 'pressure-sensor', 'rain-sensor', 'solar-sensor', 'soil-temperature-sensor', 'soil-water-sensor', 'temperature-sensor', 'wind-sensor']

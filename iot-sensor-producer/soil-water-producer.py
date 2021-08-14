@@ -5,7 +5,7 @@ import time
 from kafka import KafkaProducer
 import configFileManager
 
-FILENAME_SOIL_WATER_FMT = './2020-{}-rain.csv'
+FILENAME_SOIL_WATER_FMT = './2020-{}-soil-water.csv'
 TOPIC = 'soil-water-sensor'
 
 

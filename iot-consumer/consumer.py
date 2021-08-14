@@ -18,7 +18,6 @@ def map_save_influx(x,client):
     print(dict_values["id_sensor"])
     print(dict_values["type"])
     print(dict_values["value"])
-    print(dict_values["unit"])
     json_to_save = [
         {
             "measurement": dict_values["id_sensor"],

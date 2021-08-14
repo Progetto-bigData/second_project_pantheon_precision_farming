@@ -19,7 +19,7 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "test:1:1, humidity-sensor:1:1, pressure-sensor:1:1, rain-sensor:1:1, solar-sensor:1:1, soil-temperature-sensor:1:1, soil-water-sensor:1:1, temperature-sensor:1:1, wind-sensor:1:1"
+      KAFKA_CREATE_TOPICS: "test:1:1, humidity-sensor:5:1, pressure-sensor:5:1, rain-sensor:5:1, solar-sensor:5:1, soil-temperature-sensor:5:1, soil-water-sensor:5:1, temperature-sensor:5:1, wind-sensor:5:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
@@ -32,7 +32,6 @@ services:
     container_name: dummy-producer
     depends_on:
       - "kafka"
-    restart: on-failure
  
  
   humidity-producer:
@@ -42,7 +41,6 @@ services:
     container_name: humidity-producer
     depends_on:
       - "kafka"
-    restart: on-failure
  
  
   pressure-producer:
@@ -52,7 +50,6 @@ services:
     container_name: pressure-producer
     depends_on:
       - "kafka"
-    restart: on-failure
    
    
   rain-producer:
@@ -62,7 +59,6 @@ services:
     container_name: rain-producer
     depends_on:
       - "kafka"
-    restart: on-failure
   
   
   solar-producer:
@@ -72,7 +68,6 @@ services:
     container_name: solar-producer
     depends_on:
       - "kafka"
-    restart: on-failure
   
   
   soil-temperature-producer:
@@ -82,7 +77,6 @@ services:
     container_name: soil-temperature-producer
     depends_on:
       - "kafka"
-    restart: on-failure
   
   
   soil-water-producer:
@@ -101,7 +95,6 @@ services:
     container_name: temperature-producer
     depends_on:
       - "kafka"
-    restart: on-failure
   
   
   wind-producer:
@@ -111,7 +104,6 @@ services:
     container_name: wind-producer
     depends_on:
       - "kafka"
-    restart: on-failure
 
       
   dummy-consumer:
@@ -122,7 +114,7 @@ services:
     ports:
       - "8082:8080"
       - "8022:8020"
-      - "50012:50010"
+      - "50009:50010"
     environment:
       - INIT_DAEMON_STEP=setup_spark
     depends_on:
@@ -135,11 +127,11 @@ services:
     build: 
       context: .
       dockerfile: ./iot-consumer/consumer.df
-    container_name: consumer
+    #container_name: consumer
     ports:
-      - "8080:8080"
-      - "8020:8020"
-      - "50010:50010"
+      - "8280-8285:8080"
+      - "8120-8125:8020"
+      - "50010-50015:50010"
     environment:
       - INIT_DAEMON_STEP=setup_spark
     depends_on:
@@ -163,7 +155,7 @@ services:
      - INFLUXDB_DB=pantheon
     volumes:
      - "./disk/influxdb_data:/var/lib/influxdb"
-    restart: on-failure
+    restart: always
      
 
   grafana:
@@ -174,5 +166,5 @@ services:
      - "3000:3000"
     depends_on:
      - influx
-    restart: on-failure
+    restart: always
 

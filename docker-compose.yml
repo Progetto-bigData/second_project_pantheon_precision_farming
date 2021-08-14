@@ -86,6 +86,15 @@ services:
       - "kafka"
   
   
+  temperature-producer:
+    build: 
+      context: .
+      dockerfile: ./iot-sensor-producer/temperature-producer.df
+    container_name: temperature-producer
+    depends_on:
+      - "kafka"
+  
+  
   wind-producer:
     build: 
       context: .

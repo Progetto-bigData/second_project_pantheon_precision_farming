@@ -127,7 +127,6 @@ services:
     build: 
       context: .
       dockerfile: ./iot-consumer/consumer.df
-    #container_name: consumer
     ports:
       - "8280-8285:8080"
       - "8120-8125:8020"

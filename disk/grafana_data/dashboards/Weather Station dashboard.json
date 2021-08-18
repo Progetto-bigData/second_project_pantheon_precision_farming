@@ -1436,7 +1436,7 @@
           ]
         }
       ],
-      "title": "Weather_Station_humidity_max",
+      "title": "Weather_Station_windSpeed_max",
       "type": "timeseries"
     },
     {

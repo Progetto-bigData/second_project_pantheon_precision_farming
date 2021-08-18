@@ -25,13 +25,13 @@ services:
     restart: always
       
 
-  dummy-producer:
-    build: 
-      context: ./iot-sensor-producer
-      dockerfile: dummy-producer.df
-    container_name: dummy-producer
-    depends_on:
-      - "kafka"
+  #dummy-producer:
+    #build: 
+      #context: ./iot-sensor-producer
+      #dockerfile: dummy-producer.df
+    #container_name: dummy-producer
+    #depends_on:
+      #- "kafka"
  
  
   humidity-producer:
@@ -106,21 +106,21 @@ services:
       - "kafka"
 
       
-  dummy-consumer:
-    build: 
-      context: .
-      dockerfile: ./iot-consumer/dummy-consumer.df
-    container_name: dummy-consumer
-    ports:
-      - "8082:8080"
-      - "8022:8020"
-      - "50009:50010"
-    environment:
-      - INIT_DAEMON_STEP=setup_spark
-    depends_on:
-      - "kafka"
-      - "influx"
-    restart: on-failure
+  #dummy-consumer:
+    #build: 
+      #context: .
+      #dockerfile: ./iot-consumer/dummy-consumer.df
+    #container_name: dummy-consumer
+    #ports:
+      #- "8082:8080"
+      #- "8022:8020"
+      #- "50009:50010"
+    #environment:
+      #- INIT_DAEMON_STEP=setup_spark
+    #depends_on:
+      #- "kafka"
+      #- "influx"
+    #restart: on-failure
     
     
   consumer:

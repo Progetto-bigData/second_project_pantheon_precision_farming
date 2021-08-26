@@ -31,25 +31,25 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Humidity",
+            "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 3,
+            "fillOpacity": 0,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "smooth",
+            "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
             "showPoints": "auto",
-            "spanNulls": true,
+            "spanNulls": false,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -71,8 +71,7 @@
                 "value": 80
               }
             ]
-          },
-          "unit": "humidity"
+          }
         },
         "overrides": []
       },
@@ -82,7 +81,7 @@
         "x": 0,
         "y": 0
       },
-      "id": 6,
+      "id": 28,
       "options": {
         "legend": {
           "calcs": [],
@@ -95,24 +94,28 @@
       },
       "targets": [
         {
+          "alias": "Temperature daily range",
           "groupBy": [
             {
               "params": [
-                "$__interval"
+                "24h"
               ],
               "type": "time"
             },
             {
               "params": [
-                "null"
+                "none"
               ],
               "type": "fill"
             }
           ],
-          "measurement": "humidity_sensor",
+          "hide": false,
+          "measurement": "thermometer",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT max(\"value\") - min(\"value\") FROM \"thermometer\" WHERE (\"sensorType\" = 'temperature_average') AND $timeFilter GROUP BY time(24h) fill(none)",
           "queryType": "randomWalk",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -125,7 +128,7 @@
               },
               {
                 "params": [],
-                "type": "distinct"
+                "type": "max"
               }
             ]
           ],
@@ -133,12 +136,13 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "humidity_min"
+              "value": "temperature_average"
             }
           ]
         }
       ],
-      "title": "Weather_Station_humidity_min",
+      "timeShift": null,
+      "title": "Temperature daily range",
       "type": "timeseries"
     },
     {
@@ -318,7 +322,7 @@
         "x": 0,
         "y": 8
       },
-      "id": 4,
+      "id": 6,
       "options": {
         "legend": {
           "calcs": [],
@@ -369,12 +373,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "humidity_max"
+              "value": "humidity_min"
             }
           ]
         }
       ],
-      "title": "Weather_Station_humidity_max",
+      "title": "Weather_Station_humidity_min",
       "type": "timeseries"
     },
     {
@@ -503,7 +507,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Temperature max",
+            "axisLabel": "Humidity",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -544,7 +548,7 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "humidity"
         },
         "overrides": []
       },
@@ -554,7 +558,7 @@
         "x": 0,
         "y": 16
       },
-      "id": 16,
+      "id": 4,
       "options": {
         "legend": {
           "calcs": [],
@@ -581,7 +585,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "thermometer",
+          "measurement": "humidity_sensor",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -605,12 +609,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "temperature_max"
+              "value": "humidity_max"
             }
           ]
         }
       ],
-      "title": "Weather_Station_temperature_max",
+      "title": "Weather_Station_humidity_max",
       "type": "timeseries"
     },
     {
@@ -739,7 +743,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Temperature",
+            "axisLabel": "Temperature max",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -790,7 +794,7 @@
         "x": 0,
         "y": 24
       },
-      "id": 18,
+      "id": 16,
       "options": {
         "legend": {
           "calcs": [],
@@ -841,12 +845,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "temperature_min"
+              "value": "temperature_max"
             }
           ]
         }
       ],
-      "title": "Weather_Station_temperature_min",
+      "title": "Weather_Station_temperature_max",
       "type": "timeseries"
     },
     {
@@ -975,7 +979,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Wind Speed",
+            "axisLabel": "Temperature",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -1016,7 +1020,7 @@
               }
             ]
           },
-          "unit": "velocitykmh"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -1026,7 +1030,7 @@
         "x": 0,
         "y": 32
       },
-      "id": 22,
+      "id": 18,
       "options": {
         "legend": {
           "calcs": [],
@@ -1053,7 +1057,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "anemometer",
+          "measurement": "thermometer",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -1077,12 +1081,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "wind_speed_average"
+              "value": "temperature_min"
             }
           ]
         }
       ],
-      "title": "Weather_Station_windSpeed_avg",
+      "title": "Weather_Station_temperature_min",
       "type": "timeseries"
     },
     {
@@ -1262,7 +1266,7 @@
         "x": 0,
         "y": 40
       },
-      "id": 26,
+      "id": 22,
       "options": {
         "legend": {
           "calcs": [],
@@ -1313,12 +1317,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "wind_speed_min"
+              "value": "wind_speed_average"
             }
           ]
         }
       ],
-      "title": "Weather_Station_windSpeed_min",
+      "title": "Weather_Station_windSpeed_avg",
       "type": "timeseries"
     },
     {
@@ -1447,6 +1451,124 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisLabel": "Wind Speed",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 3,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "velocitykmh"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 48
+      },
+      "id": 26,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "anemometer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensorType",
+              "operator": "=",
+              "value": "wind_speed_min"
+            }
+          ]
+        }
+      ],
+      "title": "Weather_Station_windSpeed_min",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
             "axisLabel": "Pressure",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -1495,7 +1617,7 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
+        "x": 12,
         "y": 48
       },
       "id": 8,

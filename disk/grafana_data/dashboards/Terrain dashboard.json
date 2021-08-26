@@ -31,11 +31,11 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain Temperature",
+            "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 3,
+            "fillOpacity": 0,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -43,13 +43,16 @@
               "viz": false
             },
             "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
             "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
             "showPoints": "auto",
-            "spanNulls": true,
+            "spanNulls": false,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -71,8 +74,7 @@
                 "value": 80
               }
             ]
-          },
-          "unit": "celsius"
+          }
         },
         "overrides": []
       },
@@ -82,7 +84,7 @@
         "x": 0,
         "y": 0
       },
-      "id": 2,
+      "id": 74,
       "options": {
         "legend": {
           "calcs": [],
@@ -104,12 +106,12 @@
             },
             {
               "params": [
-                "null"
+                "none"
               ],
               "type": "fill"
             }
           ],
-          "measurement": "TN01_T_0",
+          "measurement": "TN01_W_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -125,7 +127,155 @@
               },
               {
                 "params": [],
-                "type": "distinct"
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "TN02_W_0",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "TN03_W_0",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "TN04_W_0",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "TN05_W_0",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
               }
             ]
           ],
@@ -133,12 +283,160 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_temperature"
+              "value": "soil_water"
             }
           ]
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "TN06_W_0",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "TN07_W_0",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "TN08_W_0",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "TN09_W_0",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
         }
       ],
-      "title": "TN_01_TEMPERATURE_DEPTH_0",
+      "title": "Terrain irrigation",
       "type": "timeseries"
     },
     {
@@ -267,7 +565,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain's water",
+            "axisLabel": "Terrain Temperature",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -308,7 +606,7 @@
               }
             ]
           },
-          "unit": "m3"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -318,7 +616,7 @@
         "x": 0,
         "y": 8
       },
-      "id": 38,
+      "id": 2,
       "options": {
         "legend": {
           "calcs": [],
@@ -345,7 +643,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN01_W_0",
+          "measurement": "TN01_T_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -369,12 +667,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_water"
+              "value": "soil_temperature"
             }
           ]
         }
       ],
-      "title": "TN_01_WATER_0",
+      "title": "TN_01_TEMPERATURE_DEPTH_0",
       "type": "timeseries"
     },
     {
@@ -503,7 +801,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain temperature",
+            "axisLabel": "Terrain's water",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -544,7 +842,7 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "m3"
         },
         "overrides": []
       },
@@ -554,7 +852,7 @@
         "x": 0,
         "y": 16
       },
-      "id": 6,
+      "id": 38,
       "options": {
         "legend": {
           "calcs": [],
@@ -581,7 +879,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN02_T_0",
+          "measurement": "TN01_W_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -605,12 +903,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_temperature"
+              "value": "soil_water"
             }
           ]
         }
       ],
-      "title": "TN_02_TEMPERATURE_0",
+      "title": "TN_01_WATER_0",
       "type": "timeseries"
     },
     {
@@ -739,7 +1037,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain's water",
+            "axisLabel": "Terrain temperature",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -780,7 +1078,7 @@
               }
             ]
           },
-          "unit": "m3"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -790,7 +1088,7 @@
         "x": 0,
         "y": 24
       },
-      "id": 42,
+      "id": 6,
       "options": {
         "legend": {
           "calcs": [],
@@ -817,7 +1115,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN02_W_0",
+          "measurement": "TN02_T_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -841,12 +1139,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_water"
+              "value": "soil_temperature"
             }
           ]
         }
       ],
-      "title": "TN_02_WATER_0",
+      "title": "TN_02_TEMPERATURE_0",
       "type": "timeseries"
     },
     {
@@ -975,7 +1273,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain temperature",
+            "axisLabel": "Terrain's water",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -1016,7 +1314,7 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "m3"
         },
         "overrides": []
       },
@@ -1026,7 +1324,7 @@
         "x": 0,
         "y": 32
       },
-      "id": 10,
+      "id": 42,
       "options": {
         "legend": {
           "calcs": [],
@@ -1053,7 +1351,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN03_T_0",
+          "measurement": "TN02_W_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -1077,12 +1375,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_temperature"
+              "value": "soil_water"
             }
           ]
         }
       ],
-      "title": "TN_03_TEMPERATURE_DEPTH_0",
+      "title": "TN_02_WATER_0",
       "type": "timeseries"
     },
     {
@@ -1211,7 +1509,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain's water",
+            "axisLabel": "Terrain temperature",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -1252,7 +1550,7 @@
               }
             ]
           },
-          "unit": "m3"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -1262,7 +1560,7 @@
         "x": 0,
         "y": 40
       },
-      "id": 46,
+      "id": 10,
       "options": {
         "legend": {
           "calcs": [],
@@ -1289,7 +1587,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN03_W_0",
+          "measurement": "TN03_T_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -1313,12 +1611,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_water"
+              "value": "soil_temperature"
             }
           ]
         }
       ],
-      "title": "TN_03_WATER_0",
+      "title": "TN_03_TEMPERATURE_DEPTH_0",
       "type": "timeseries"
     },
     {
@@ -1447,7 +1745,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain temperature",
+            "axisLabel": "Terrain's water",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -1488,7 +1786,7 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "m3"
         },
         "overrides": []
       },
@@ -1498,7 +1796,7 @@
         "x": 0,
         "y": 48
       },
-      "id": 14,
+      "id": 46,
       "options": {
         "legend": {
           "calcs": [],
@@ -1525,7 +1823,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN04_T_0",
+          "measurement": "TN03_W_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -1549,12 +1847,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_temperature"
+              "value": "soil_water"
             }
           ]
         }
       ],
-      "title": "TN_04_TEMPERATURE_DEPTH_0",
+      "title": "TN_03_WATER_0",
       "type": "timeseries"
     },
     {
@@ -1683,7 +1981,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain's water",
+            "axisLabel": "Terrain temperature",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -1724,7 +2022,7 @@
               }
             ]
           },
-          "unit": "m3"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -1734,7 +2032,7 @@
         "x": 0,
         "y": 56
       },
-      "id": 50,
+      "id": 14,
       "options": {
         "legend": {
           "calcs": [],
@@ -1761,7 +2059,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN04_W_0",
+          "measurement": "TN04_T_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -1785,12 +2083,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_water"
+              "value": "soil_temperature"
             }
           ]
         }
       ],
-      "title": "TN_04_WATER_0",
+      "title": "TN_04_TEMPERATURE_DEPTH_0",
       "type": "timeseries"
     },
     {
@@ -1919,7 +2217,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain temperature",
+            "axisLabel": "Terrain's water",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -1960,7 +2258,7 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "m3"
         },
         "overrides": []
       },
@@ -1970,7 +2268,7 @@
         "x": 0,
         "y": 64
       },
-      "id": 18,
+      "id": 50,
       "options": {
         "legend": {
           "calcs": [],
@@ -1997,7 +2295,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN05_T_0",
+          "measurement": "TN04_W_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -2021,12 +2319,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_temperature"
+              "value": "soil_water"
             }
           ]
         }
       ],
-      "title": "TN_05_TEMPERATURE_DEPTH_0",
+      "title": "TN_04_WATER_0",
       "type": "timeseries"
     },
     {
@@ -2155,7 +2453,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain's water",
+            "axisLabel": "Terrain temperature",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -2196,7 +2494,7 @@
               }
             ]
           },
-          "unit": "m3"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -2206,7 +2504,7 @@
         "x": 0,
         "y": 72
       },
-      "id": 54,
+      "id": 18,
       "options": {
         "legend": {
           "calcs": [],
@@ -2233,7 +2531,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN05_W_0",
+          "measurement": "TN05_T_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -2257,12 +2555,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_water"
+              "value": "soil_temperature"
             }
           ]
         }
       ],
-      "title": "TN_05_WATER_0",
+      "title": "TN_05_TEMPERATURE_DEPTH_0",
       "type": "timeseries"
     },
     {
@@ -2391,7 +2689,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain temperature",
+            "axisLabel": "Terrain's water",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -2432,7 +2730,7 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "m3"
         },
         "overrides": []
       },
@@ -2442,7 +2740,7 @@
         "x": 0,
         "y": 80
       },
-      "id": 22,
+      "id": 54,
       "options": {
         "legend": {
           "calcs": [],
@@ -2469,7 +2767,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN06_T_0",
+          "measurement": "TN05_W_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -2493,12 +2791,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_temperature"
+              "value": "soil_water"
             }
           ]
         }
       ],
-      "title": "TN_06_TEMPERATURE_DEPTH_0",
+      "title": "TN_05_WATER_0",
       "type": "timeseries"
     },
     {
@@ -2627,7 +2925,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain's water",
+            "axisLabel": "Terrain temperature",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -2668,7 +2966,7 @@
               }
             ]
           },
-          "unit": "m3"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -2678,7 +2976,7 @@
         "x": 0,
         "y": 88
       },
-      "id": 58,
+      "id": 22,
       "options": {
         "legend": {
           "calcs": [],
@@ -2705,7 +3003,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN06_W_0",
+          "measurement": "TN06_T_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -2729,12 +3027,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_water"
+              "value": "soil_temperature"
             }
           ]
         }
       ],
-      "title": "TN_06_WATER_0",
+      "title": "TN_06_TEMPERATURE_DEPTH_0",
       "type": "timeseries"
     },
     {
@@ -2863,7 +3161,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain temperature",
+            "axisLabel": "Terrain's water",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -2904,7 +3202,7 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "m3"
         },
         "overrides": []
       },
@@ -2914,7 +3212,7 @@
         "x": 0,
         "y": 96
       },
-      "id": 26,
+      "id": 58,
       "options": {
         "legend": {
           "calcs": [],
@@ -2941,7 +3239,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN07_T_0",
+          "measurement": "TN06_W_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -2965,12 +3263,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_temperature"
+              "value": "soil_water"
             }
           ]
         }
       ],
-      "title": "TN_07_TEMPERATURE_DEPTH_0",
+      "title": "TN_06_WATER_0",
       "type": "timeseries"
     },
     {
@@ -3099,7 +3397,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain's water",
+            "axisLabel": "Terrain temperature",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -3140,7 +3438,7 @@
               }
             ]
           },
-          "unit": "m3"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -3150,7 +3448,7 @@
         "x": 0,
         "y": 104
       },
-      "id": 62,
+      "id": 26,
       "options": {
         "legend": {
           "calcs": [],
@@ -3177,7 +3475,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN07_W_0",
+          "measurement": "TN07_T_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -3201,12 +3499,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_water"
+              "value": "soil_temperature"
             }
           ]
         }
       ],
-      "title": "TN_07_WATER_0",
+      "title": "TN_07_TEMPERATURE_DEPTH_0",
       "type": "timeseries"
     },
     {
@@ -3335,7 +3633,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain temperature",
+            "axisLabel": "Terrain's water",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -3376,7 +3674,7 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "m3"
         },
         "overrides": []
       },
@@ -3386,7 +3684,7 @@
         "x": 0,
         "y": 112
       },
-      "id": 30,
+      "id": 62,
       "options": {
         "legend": {
           "calcs": [],
@@ -3413,7 +3711,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN08_T_0",
+          "measurement": "TN07_W_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -3437,12 +3735,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_temperature"
+              "value": "soil_water"
             }
           ]
         }
       ],
-      "title": "TN_08_TEMPERATURE_DEPTH_0",
+      "title": "TN_07_WATER_0",
       "type": "timeseries"
     },
     {
@@ -3571,7 +3869,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain's water",
+            "axisLabel": "Terrain temperature",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -3612,7 +3910,7 @@
               }
             ]
           },
-          "unit": "m3"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -3622,7 +3920,7 @@
         "x": 0,
         "y": 120
       },
-      "id": 66,
+      "id": 30,
       "options": {
         "legend": {
           "calcs": [],
@@ -3649,7 +3947,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN08_W_0",
+          "measurement": "TN08_T_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -3673,12 +3971,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_water"
+              "value": "soil_temperature"
             }
           ]
         }
       ],
-      "title": "TN_08_WATER_0",
+      "title": "TN_08_TEMPERATURE_DEPTH_0",
       "type": "timeseries"
     },
     {
@@ -3807,7 +4105,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain temperature",
+            "axisLabel": "Terrain's water",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -3848,7 +4146,7 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "m3"
         },
         "overrides": []
       },
@@ -3858,7 +4156,7 @@
         "x": 0,
         "y": 128
       },
-      "id": 34,
+      "id": 66,
       "options": {
         "legend": {
           "calcs": [],
@@ -3885,7 +4183,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN09_T_0",
+          "measurement": "TN08_W_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -3909,12 +4207,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_temperature"
+              "value": "soil_water"
             }
           ]
         }
       ],
-      "title": "TN_09_TEMPERATURE_DEPTH_0",
+      "title": "TN_08_WATER_0",
       "type": "timeseries"
     },
     {
@@ -4043,7 +4341,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "Terrain's water",
+            "axisLabel": "Terrain temperature",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -4084,7 +4382,7 @@
               }
             ]
           },
-          "unit": "m3"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -4094,7 +4392,7 @@
         "x": 0,
         "y": 136
       },
-      "id": 70,
+      "id": 34,
       "options": {
         "legend": {
           "calcs": [],
@@ -4121,7 +4419,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "TN09_W_0",
+          "measurement": "TN09_T_0",
           "orderByTime": "ASC",
           "policy": "default",
           "queryType": "randomWalk",
@@ -4145,12 +4443,12 @@
             {
               "key": "sensorType",
               "operator": "=",
-              "value": "soil_water"
+              "value": "soil_temperature"
             }
           ]
         }
       ],
-      "title": "TN_09_WATER_0",
+      "title": "TN_09_TEMPERATURE_DEPTH_0",
       "type": "timeseries"
     },
     {
@@ -4269,6 +4567,124 @@
         }
       ],
       "title": "TN_09_WATER_1",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "Terrain's water",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 3,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "m3"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 144
+      },
+      "id": 70,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "TN09_W_0",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sensorType",
+              "operator": "=",
+              "value": "soil_water"
+            }
+          ]
+        }
+      ],
+      "title": "TN_09_WATER_0",
       "type": "timeseries"
     }
   ],

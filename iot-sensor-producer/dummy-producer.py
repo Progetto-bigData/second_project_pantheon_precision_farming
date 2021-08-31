@@ -1,6 +1,9 @@
 import time
 from kafka import KafkaProducer
 
+''' 
+    This script has only testing purposes
+'''
 def main():
     time.sleep(10)
     producer = KafkaProducer(bootstrap_servers='kafka:9092')

@@ -5,6 +5,9 @@ from influxdb import InfluxDBClient
 import time
 import random
 
+''' 
+    This script has only testing purposes
+'''
 def read_data(x):
     return x
 

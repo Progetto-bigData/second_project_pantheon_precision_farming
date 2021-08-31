@@ -21,7 +21,9 @@ Meanwhile in the package iot-consumer there is a python script with the responsi
 - For a clean (with an empty DB instace) start-up of all the containers, to see all the system at work, run the following command (be careful it will wipe out all the data already stored in the [influxdb_data directory](./disk/influxdb_data/)): 
 <br/>       ``` sudo ./scripts/start-up-clean.sh ```
 - To start-up all the sensors and consumers mantaining old data in the DB run the following command: 
-<br/>       ``` sudo ./scripts/start-up-clean.sh ```
+<br/>       ``` sudo ./scripts/start-up.sh ```
+- In any case to stop all the sensors and consumers and to remove all the containers run the following command: 
+<br/>       ``` sudo ./scripts/tear-down.sh ```
 
 **N.B. when cloning the repo there are already all the data in the [influxdb_data directory](./disk/influxdb_data/) to avoid losing time waiting all the sensors sending data and to be able to see the final result in the grafana dashboards.** 
 

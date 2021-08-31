@@ -24,7 +24,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
       
-
+  #This commented service has only testing purposes
   #dummy-producer:
     #build: 
       #context: ./iot-sensor-producer
@@ -105,7 +105,7 @@ services:
     depends_on:
       - "kafka"
 
-      
+  #This commented service has only testing purposes
   #dummy-consumer:
     #build: 
       #context: .

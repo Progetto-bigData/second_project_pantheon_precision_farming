@@ -14,6 +14,8 @@ In the package iot-producer there is a python script that emulate each sensor. E
 
 Meanwhile in the package iot-consumer there is a python script with the responsibility of taking in all the messages every 10 seconds from kafka-topics, verifying the integrity of each message and then saving it in influxDB. The consumer instance is replicated 5 times (each kafka-topic is partioned with the same number) so that the consumers can keep it up with the rate at which the messages are produced.
 
+See [final report](./docs/final_report.pdf) for a detailed description of the project (it is written in italian though). 
+
 ## Developer's notes
 - To start-up only the DB instance and grafana to see the created dashboards with all the data already in it use the following command: 
   <br/>     ``` sudo ./scripts/start-up-only-grafana.sh ```
